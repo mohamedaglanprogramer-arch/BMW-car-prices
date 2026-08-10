@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BMW</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            color: white;
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.20),
+                    rgba(0, 10, 25, 0.30)
+                ),
+                url("https://images.unsplash.com/photo-1555215695-3004980ad54e");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .main {
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        /* اللوجو واسم BMW */
+
+        .bmw-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .bmw-header .logo {
+            width: 75px;
+            height: 75px;
+
+            border-radius: 50%;
+
+            object-fit: contain;
+
+            filter:
+                drop-shadow(0 0 8px #1689ff)
+                drop-shadow(0 0 15px #1689ff);
+        }
+
+        .bmw-header h1 {
+            margin: 6px 0 0;
+
+            font-size: 32px;
+
+            color: white;
+
+            text-shadow:
+                0 0 8px #1689ff,
+                0 0 18px #1689ff;
+        }
+
+
+        /* الزرار */
+
+        .car-button {
+            position: relative;
+            overflow: hidden;
+
+            padding: 18px 45px;
+
+            color: white;
+
+            background: rgba(5, 5, 5, 0.75);
+
+            border: 2px solid #1689ff;
+            border-radius: 8px;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.4s;
+
+            box-shadow: 0 0 10px #1689ff;
+        }
+
+
+        /* اللمعة */
+
+        .car-button::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 70%;
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.8),
+                transparent
+            );
+
+            transform: skewX(-25deg);
+
+            transition: left 0.6s ease;
+        }
+
+
+        .car-button:hover::before {
+            left: 140%;
+        }
+
+
+        .car-button:hover {
+            background: #1689ff;
+
+            transform: scale(1.08);
+
+            box-shadow:
+                0 0 10px #1689ff,
+                0 0 30px #1689ff,
+                0 0 60px #1689ff;
+        }
+
+
+        .car-button:active {
+            transform: scale(0.95);
+        }
+
+
+        .car-button span {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* معلومات السيارة */
+
+        #car-info {
+            display: none;
+
+            width: 330px;
+
+            margin: 40px auto;
+
+            padding: 20px;
+
+            background: rgba(0, 0, 0, 0.70);
+
+            backdrop-filter: blur(8px);
+
+            border: 2px solid #1689ff;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 0 20px #1689ff,
+                0 0 40px rgba(22,137,255,0.4);
+
+            text-align: left;
+        }
+
+
+        #car-info h2 {
+            text-align: center;
+
+            color: #1689ff;
+
+            text-shadow: 0 0 10px #1689ff;
+        }
+
+
+        #car-info img {
+            width: 200px;
+
+            display: block;
+
+            margin: auto;
+
+            border-radius: 12px;
+
+            border: 1px solid #1689ff;
+        }
+
+
+        #car-info li {
+            margin: 12px 0;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="main">
+
+        <!-- اللوجو واسم BMW -->
+
+        <div class="bmw-header">
+
+            <img
+                class="logo"
+                src="https://images.seeklogo.com/logo-png/43/1/bmw-m-logo-png_seeklogo-437262.png"
+                alt="BMW M Logo">
+
+            <h1>BMW</h1>
+
+        </div>
+
+
+        <!-- الزرار -->
+
+        <button class="car-button" onclick="showCar()">
+
+            <span>اضغط لعرض السيارات</span>
+
+        </button>
+
+
+        <!-- معلومات السيارة -->
+
+        <div id="car-info">
+
+            <h2>BMW M4</h2>
+
+            <img
+                src="https://imgcdn.sayaratbay.com/large/gallery/exterior/4/1334/bmw-m4-full-front-view-152948.jpg"
+                alt="BMW M4">
+
+
+            <ol type="I">
+
+                <li>
+                    <p>Car: BMW</p>
+                </li>
+
+                <li>
+                    <p>Model: M4</p>
+                </li>
+
+                <li>
+                    <p>Price: <b>91,700$</b></p>
+                </li>
+
+                <li>
+                    <p>All-Wheel Drive (AWD)</p>
+                </li>
+
+            </ol>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function showCar() {
+
+            document.getElementById("car-info").style.display = "block";
+
+        }
+
+    </script>
+
+</body>
+</html>
